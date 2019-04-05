@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="otherBean" class="com.hj.ioc05.OtherBean">
+        <property name="name" value="hj"/>
+    </bean>
+
+    <bean id="springBean" class="com.hj.ioc05.SpringBean">
+        <property name="otherBean" ref="otherBean"/>
+        <!--对数组里面的值进行装配-->
+        <property name="arrays">
+            <array>
+                <value>1</value>
+                <value>2</value>
+                <value>5</value>
+                <value>8</value>
+            </array>
+        </property>
+        <!--对List集合装配-->
+        <property name="list">
+            <list>
+                <ref bean="otherBean"/>
+                <ref bean="otherBean"/>
+                <bean class="com.hj.ioc05.OtherBean">
+                    <property name="name" value="老李"/>
+                </bean>
+                <bean class="com.hj.ioc05.OtherBean">
+                    <property name="name" value="小李"/>
+                </bean>
+            </list>
+        </property>
+        <!--对Set集合装配-->
+        <property name="set">
+            <set>
+                <ref bean="otherBean"/>
+                <bean class="com.hj.ioc05.OtherBean">
+                    <property name="name" value="栗子"/>
+                </bean>
+            </set>
+        </property>
+        <!--对Map集合装配-->
+        <property name="map">
+            <map>
+                <entry key-ref="otherBean" value="java.lang.Integer"/>
+            </map>
+        </property>
+        <!--对Properties装配-->
+        <property name="properties">
+            <props>
+                <prop key="key1">value1</prop>
+                <prop key="key2">value2</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>

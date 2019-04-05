@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="springBean" class="com.hj.ioc08.SpringBean" init-method="init">
+        <!--这里面数据装配是取不到的,需要在初始化方法里进行字符串截取-->
+        <property name="username" value="${name}"/>
+        <property name="password" value="${password}"/>
+        <property name="email" value="${email}"/>
+        <property name="photo" value="${photo}"/>
+        <property name="age" value="20"/>
+    </bean>
+
+</beans>

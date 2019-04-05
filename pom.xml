@@ -25,6 +25,8 @@
 
         <!--dependency version-->
         <junit.version>5.4.0</junit.version>
+        <spring-version>5.0.8.RELEASE</spring-version>
+        <lombok-version>1.18.2</lombok-version>
     </properties>
 
     <dependencies>
@@ -34,6 +36,37 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok-version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+
+        <!--spring-IOC-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-beans</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-expression</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>

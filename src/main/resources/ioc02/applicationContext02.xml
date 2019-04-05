@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--Dao-->
+    <bean id="userDao" class="com.hj.ioc02.dao.impl.UserDaoImpl"/>
+
+    <!--service-->
+    <bean id="userServices" class="com.hj.ioc02.service.impl.UserServiceImpl">
+        <!--UserServiceImpl类需要使用userDao里面的方法,因此在UserServiceImpl类
+        里面注入userDao的实例对象,但是这个实例对象在上面已经存在,所有用ref="userDao"
+        直接引用。
+        通过ref属性注入bean.
+        -->
+        <property name="userDao" ref="userDao"/>
+    </bean>
+
+</beans>
