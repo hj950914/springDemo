@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--自动装配-->
+    <!--
+            autowire 取值:
+                    default:不进行自动装配
+                    byName:根据属性名自动装配,查找同名的bean(也就是查找id)
+                    byType:根据属性类型自动装配,查找同类型的bean(也就是查找class)*推荐*
+                            如果刚好找到一个,则注入
+                            如果找到多个,则抛出异常
+                   constructor：根据构造方法自动装配
+                            同时根据byName和byType自动装配,先按byName,再按byType
+                            注:此时不是通过setter方法进行注入,而是通过构造方法注入
+
+    -->
+
+    <bean id="springBean" class="com.hj.ioc17.SpringBean" autowire="constructor">
+        <!--手动注入-->
+        <!--<property name="otherBean" ref="otherBean"/>-->
+    </bean>
+
+
+    <bean id="otherBean" class="com.hj.ioc17.OtherBean">
+        <property name="name" value="hj"/>
+    </bean>
+</beans>

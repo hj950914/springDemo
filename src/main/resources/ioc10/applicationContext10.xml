@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--通过静态工厂实例化bean-->
+
+    <!--无参-->
+    <!--<bean id="springBean" class="com.hj.ioc10.SpringBeanFactory" factory-method="getSpringBean">
+        <property name="name" value="hj"/>
+    </bean>-->
+
+    <!--带参数-->
+    <bean id="springBean2" class="com.hj.ioc10.SpringBeanFactory" factory-method="getSpringBean">
+        <constructor-arg name="name" value="hj2"/>
+    </bean>
+</beans>
