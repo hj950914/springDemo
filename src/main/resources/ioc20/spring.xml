@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--获取情人节的日期对象-->
+    <bean id="valentine" class="com.hj.ioc20.DataFactoryBean">
+        <property name="year" value="2019"/>
+        <property name="month" value="2"/>
+        <property name="day" value="14"/>
+        <property name="hour" value="12"/>
+        <property name="minute" value="00"/>
+        <property name="second" value="00"/>
+    </bean>
+</beans>

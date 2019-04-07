@@ -1,7 +1,6 @@
 package com.hj.ioc08;
 
 import lombok.Data;
-import lombok.Getter;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--为resource属性注入值-->
+    <bean id="springBean" class="com.hj.ioc21.SpringBean" >
+        <property name="resource" value="classpath:ioc21/spring.xml"/>
+    </bean>
+
+    <!--实例工厂-->
+    <!--<bean id="resource" factory-bean="springBean" factory-method="getResource"/>-->
+</beans>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="springBean" class="com.hj.ioc23.SpringBean">
+        <property name="username" value="${name}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+
+    <bean id="otherBean" class="com.hj.ioc23.OtherBean">
+        <property name="address" value="${address}"/>
+        <property name="phone" value="${phone}"/>
+    </bean>
+
+    <!--注册bean后置处理器-->
+    <bean class="com.hj.ioc23.PropertiesPostProcessor">
+        <property name="resource" value="classpath:ioc23/info.properties"/>
+    </bean>
+</beans>
