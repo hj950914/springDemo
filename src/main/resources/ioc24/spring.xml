@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="springBean" class="com.hj.ioc24.SpringBean">
+        <property name="addressList">
+            <list>
+                <value>[杭州-浙江]</value>
+                <!--<value>[九江-江西]</value>-->
+            </list>
+        </property>
+        <property name="birthday" value="1995-09-14"/>
+        <property name="username" value="${username}"/>
+        <property name="sex" value="${sex}"/>
+    </bean>
+
+    <!--注册容器后处理器,使用Spring提供的CustomEditorConfigurer-->
+    <bean class="com.hj.ioc24.SpringBeanFactoryPostProcessor">
+        <property name="customEditors">
+            <map>
+                <entry key="com.hj.ioc24.Address" value="com.hj.ioc24.Editor.AddressEditor"/>
+                <entry key="java.util.Date" value="com.hj.ioc24.Editor.DataEditor"/>
+                <!--<entry key="java.lang.String" value="com.hj.ioc24.Editor.StringEditor"/>-->
+                <!--<entry key="java.lang.Boolean" value="com.hj.ioc24.Editor.BooleanEditor"/>-->
+            </map>
+        </property>
+    </bean>
+
+    <!--注册容器后处理器,自定义-->
+    <!--<bean class="com.hj.ioc24.SpringBeanFactoryPostProcessor">
+        <property name="customEditors">
+            <map>
+                <entry key="com.hj.ioc24.Address" value="com.hj.ioc24.Editor.AddressEditor"/>
+                <entry key="java.util.Date" value="com.hj.ioc24.Editor.DataEditor"/>
+                <entry key="java.lang.String" value="com.hj.ioc24.Editor.StringEditor"/>
+                <entry key="java.lang.Boolean" value="com.hj.ioc24.Editor.BooleanEditor"/>
+            </map>
+        </property>
+    </bean>-->
+
+
+    <!--使用spring的PropertyPlaceholderConfigurer加载属性文件-->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:ioc24/info.properties"/>
+    </bean>
+
+</beans>
