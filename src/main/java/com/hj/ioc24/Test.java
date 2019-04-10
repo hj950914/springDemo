@@ -6,7 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 /**
  * Author: hj
  * Date: 2019-04-09 15:24
- * Description: <描述>
+ * Description: 关于数据装配的时候,进行类型装换
  */
 public class Test {
 

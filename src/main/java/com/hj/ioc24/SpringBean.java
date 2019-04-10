@@ -20,7 +20,7 @@ public class SpringBean {
 
     private String username;//用户名
 
-    private boolean sex;//性别,true(男)
+    private Boolean sex;//性别,true(男)
 
 
 }
