@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--spring aop 1.x-->
+
+    <!--配置目标类的实例-->
+    <bean id="userServiceTarget" class="com.hj.aop04.service.impl.UserServiceImpl"/>
+
+    <!--配置Advice-->
+    <bean id="logAdvice" class="com.hj.aop04.advice.LogAdvice"/>
+
+    <!--配置Advisor,将Advice注入到Pointcut位置,织入的过程-->
+    <bean id="logAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <!--指定Advice-->
+        <property name="advice" ref="logAdvice"/>
+
+        <!--配置Pointcut,指定匹配哪些方法-->
+        <property name="mappedNames">
+            <list>
+                <value>login</value>
+                <!--<value>logout</value>-->
+            </list>
+        </property>
+    </bean>
+
+    <!--配置代理-->
+    <bean id="userService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="userServiceTarget"/> <!--目标类的实例-->
+        <property name="interfaces"> <!--目标类的接口列表-->
+            <list>
+                <value>com.hj.aop04.service.UserService</value>
+            </list>
+        </property>
+        <property name="interceptorNames"> <!--交叉业务逻辑-->
+            <list>
+                <value>logAdvisor</value>
+            </list>
+        </property>
+    </bean>
+</beans>
