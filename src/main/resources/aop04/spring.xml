@@ -11,8 +11,13 @@
 
     <!--配置Advice-->
     <bean id="logAdvice" class="com.hj.aop04.advice.LogAdvice"/>
+    <bean id="goodByeAdvice" class="com.hj.aop04.advice.GoodByeAdvice"/>
+    <bean id="timeAdvice" class="com.hj.aop04.advice.TimeAdvice">
+        <property name="time" value="3"/>
+    </bean>
+    <bean id="exceptionAdvice" class="com.hj.aop04.advice.ExceptionAdvice"/>
 
-    <!--配置Advisor,将Advice注入到Pointcut位置,织入的过程-->
+    <!--配置Advisor(前置通知),将Advice注入到Pointcut位置,织入的过程-->
     <bean id="logAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
         <!--指定Advice-->
         <property name="advice" ref="logAdvice"/>
@@ -21,7 +26,34 @@
         <property name="mappedNames">
             <list>
                 <value>login</value>
-                <!--<value>logout</value>-->
+                <value>logout</value>
+            </list>
+        </property>
+    </bean>
+    <!--配置Advisor(后置通知)-->
+    <bean id="goodByeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="goodByeAdvice"/>
+        <property name="mappedNames">
+            <list>
+                <value>logout</value>
+            </list>
+        </property>
+    </bean>
+    <!--配置Advisor(环绕通知）-->
+    <bean id="timeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="timeAdvice"/>
+        <property name="mappedNames">
+            <list>
+                <value>login</value>
+            </list>
+        </property>
+    </bean>
+    <!--配置Advisor(异常通知)-->
+    <bean id="exceptionAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="exceptionAdvice"/>
+        <property name="mappedNames">
+            <list>
+                <value>*</value>
             </list>
         </property>
     </bean>
@@ -37,6 +69,9 @@
         <property name="interceptorNames"> <!--交叉业务逻辑-->
             <list>
                 <value>logAdvisor</value>
+                <value>goodByeAdvisor</value>
+                <value>timeAdvisor</value>
+                <value>exceptionAdvisor</value>
             </list>
         </property>
     </bean>

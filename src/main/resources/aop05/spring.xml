@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="caluServiceTarget" class="com.hj.aop05.service.impl.CaluServiceImpl"/>
+
+    <!--配置advice(通知)-->
+    <bean id="bufferAdvice" class="com.hj.aop05.advice.BufferAdvice"/>
+
+    <!--配置advisor(织入)-->
+    <bean id="bufferAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="bufferAdvice"/>
+        <property name="mappedNames">
+            <list>
+                <value>add</value>
+                <value>sub</value>
+            </list>
+        </property>
+    </bean>
+    <!--配置代理-->
+    <bean id="caluService" class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="caluServiceTarget"/><!--目标对象的实例-->
+        <property name="interfaces"><!--目标类的接口列表-->
+            <list>
+                <value>com.hj.aop05.service.CaluService</value>
+            </list>
+        </property>
+        <property name="interceptorNames"><!--交叉业务逻辑-->
+            <list>
+                <value>bufferAdvisor</value>
+            </list>
+        </property>
+    </bean>
+</beans>

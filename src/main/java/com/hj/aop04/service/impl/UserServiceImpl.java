@@ -11,6 +11,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void login(String username, String password) {
+        try {
+            Thread.sleep(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //int i=1/0;
         System.out.println("用户名:" + username + "密码:" + password);
     }
 
