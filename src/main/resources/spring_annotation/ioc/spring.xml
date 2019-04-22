@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <!--扫描包(注解扫描),可以配置多个-->
+    <context:component-scan base-package="com.hj.spring_annotation.ioc"/>
+
+    <!--读取属性文件(后处理器,使用了内置的属性编辑器)-->
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+    <!--<property name="location" value="classpath:spring_annotation/ioc/info.properties"/>-->
+    <!--</bean>-->
+
+    <!--使用命名空间读取属性文件-->
+    <context:property-placeholder location="classpath:spring_annotation/ioc/info.properties"/>
+
+    <!--集合类型的装配-->
+    <util:list id="arrays">
+        <value>1</value>
+        <value>2</value>
+    </util:list>
+    <util:list id="list">
+        <ref bean="otherBean"/>
+    </util:list>
+    <util:set id="set">
+        <ref bean="otherBean"/>
+    </util:set>
+    <util:map id="map">
+        <entry key-ref="otherBean" value="java.lang.String"/>
+    </util:map>
+    <util:properties id="properties">
+        <prop key="key1">value1</prop>
+        <prop key="key2">value2</prop>
+    </util:properties>
+
+</beans>

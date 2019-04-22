@@ -3,6 +3,8 @@ package com.hj.aop02.action;
 import com.hj.aop02.service.UserService;
 import com.hj.aop02.service.impl.UserServiceImpl;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Date;
 
@@ -27,7 +29,7 @@ public class Test {
                     return method.invoke(new UserServiceImpl(), args1);
                 }
         );
-        System.out.println("代理类:"+userService.getClass());
+        System.out.println("类的类类型" + userService.getClass());
         userService.login("admin", "123456");
         userService.logout();
     }

@@ -29,7 +29,7 @@ public class LodAdvice {
 
     //后置增强
     public void log2(JoinPoint joinPoint, Object returnValue) {
-        System.out.println("LodAdvice.log2，returnValue" + returnValue);
+        System.out.println("LodAdvice.log2，returnValue ->" + returnValue);
     }
 
     //异常通知

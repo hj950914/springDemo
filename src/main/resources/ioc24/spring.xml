@@ -32,30 +32,30 @@
 
 
     <!--全自动-->
-    <!--
+    <!--&lt;!&ndash;-->
 
-    &lt;!&ndash;自动&ndash;&gt;
-    &lt;!&ndash;注册容器后处理器,使用Spring提供的CustomEditorConfigurer&ndash;&gt;
-    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
-        <property name="customEditors">
-            <map>
-                <entry key="com.hj.ioc24.Address" value="com.hj.ioc24.Editor.AddressEditor"/>
-                <entry key="java.util.Date" value="com.hj.ioc24.Editor.DataEditor"/>
-                &lt;!&ndash;这里自定义的属性编辑器可以不写,因为使用spring的PropertyPlaceholderConfigurer加载属性文件,
-                    里面已经定义好了常用的属性编辑器,String和Boolean已经定义好。
-                &ndash;&gt;
-                &lt;!&ndash;<entry key="java.lang.String" value="com.hj.ioc24.Editor.StringEditor"/>
-                <entry key="java.lang.Boolean" value="com.hj.ioc24.Editor.BooleanEditor"/>&ndash;&gt;
-            </map>
-        </property>
-    </bean>
-    &lt;!&ndash;使用spring的PropertyPlaceholderConfigurer加载属性文件,并且里面内置了常用的属性编辑器,
-    比较String,Boolean,Integer类型
-    &ndash;&gt;
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <property name="location" value="classpath:ioc24/info.properties"/>
-    </bean>
+    <!--&lt;!&ndash;自动&ndash;&gt;-->
+    <!--&lt;!&ndash;注册容器后处理器,使用Spring提供的CustomEditorConfigurer&ndash;&gt;-->
+    <!--<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">-->
+        <!--<property name="customEditors">-->
+            <!--<map>-->
+                <!--<entry key="com.hj.ioc24.Address" value="com.hj.ioc24.Editor.AddressEditor"/>-->
+                <!--<entry key="java.util.Date" value="com.hj.ioc24.Editor.DataEditor"/>-->
+                <!--&lt;!&ndash;这里自定义的属性编辑器可以不写,因为使用spring的PropertyPlaceholderConfigurer加载属性文件,-->
+                    <!--里面已经定义好了常用的属性编辑器,String和Boolean已经定义好。-->
+                <!--&ndash;&gt;-->
+                <!--&lt;!&ndash;<entry key="java.lang.String" value="com.hj.ioc24.Editor.StringEditor"/>-->
+                <!--<entry key="java.lang.Boolean" value="com.hj.ioc24.Editor.BooleanEditor"/>&ndash;&gt;-->
+            <!--</map>-->
+        <!--</property>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash;使用spring的PropertyPlaceholderConfigurer加载属性文件,并且里面内置了常用的属性编辑器,-->
+    <!--比较String,Boolean,Integer类型-->
+    <!--&ndash;&gt;-->
+    <!--<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">-->
+        <!--<property name="location" value="classpath:ioc24/info.properties"/>-->
+    <!--</bean>-->
 
-    -->
+    <!--&ndash;&gt;-->
 
 </beans>
