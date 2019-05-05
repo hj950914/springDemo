@@ -21,12 +21,12 @@ public class BooleanEditor extends PropertyEditorSupport {
         System.out.println("BooleanEditor-setAsText");
         //判断是否合法字符
         if (PropertiesUtils.matcher(text)) {
-            String key = PropertiesUtils.getKey(text);
-            PropertiesUtils.loadind(BooleanEditor.class.getClassLoader().getResourceAsStream("ioc24/info.properties"));
-            String value = (String) PropertiesUtils.getValue(key);
-            System.out.println(value);
-            Boolean b = Boolean.parseBoolean(value);
-            setValue(b);
+                String key = PropertiesUtils.getKey(text);
+                PropertiesUtils.loadind(BooleanEditor.class.getClassLoader().getResourceAsStream("ioc24/info.properties"));
+                String value = (String) PropertiesUtils.getValue(key);
+                System.out.println(value);
+                Boolean b = Boolean.parseBoolean(value);
+                setValue(b);
         }
     }
 }

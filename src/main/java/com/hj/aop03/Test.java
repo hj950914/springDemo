@@ -21,7 +21,7 @@ public class Test {
                     return method.invoke(new HelloWord());
                 }
         );
-        System.out.println("代理类的类型：" + helloWord);
+        System.out.println("代理类的类型：" + helloWord.getClass());
         helloWord.print();
     }
 }

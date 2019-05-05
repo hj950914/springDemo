@@ -28,6 +28,17 @@ public class Test {
                     //2.执行业务
                     return method.invoke(new UserServiceImpl(), args1);
                 }
+
+                /*new InvocationHandler() {
+                    @Override
+                    public Object invoke(Object proxy, Method method, Object[] args1) throws Throwable {
+                        //1.打印日志
+                        System.out.println(method.getName() + "start time:" + new Date().getTime());
+                        //2.执行业务
+                        return method.invoke(new UserServiceImpl(), args1);
+                    }
+                }*/
+
         );
         System.out.println("类的类类型" + userService.getClass());
         userService.login("admin", "123456");
